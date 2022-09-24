@@ -10,5 +10,10 @@ namespace Robo.Domain.Models
         {
             Contracted = Contracted.Rest;    
         }
+
+        public void setContracted(Contracted contracted)
+        {
+            Contracted = contracted;
+        }
     }
 }

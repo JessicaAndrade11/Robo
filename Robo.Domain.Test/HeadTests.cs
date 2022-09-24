@@ -17,5 +17,35 @@ namespace Robo.Domain.Test
             Assert.Equal(Slope.Rest, result.Slope);
             Assert.Equal(Rotation.Rest, result.Rotation);
         }
+
+        [Theory]
+        [InlineData(Slope.Up)]
+        [InlineData(Slope.Rest)]
+        public void RotationHead_WithSlopeDifferentThanDown_ShouldRotationTheHead(Slope slope)
+        {
+            //Arrange
+            var head = new Head();
+            head.SetSlope(slope);
+
+            //Act
+            head.SetRotation(Rotation.Minus45);
+
+            //Assert
+            Assert.Equal(Rotation.Minus45, head.Rotation);
+        }
+
+        [Fact]
+        public void RotationHead_WithSlopeLikeDown_ShouldNotRotationTheHead()
+        {
+            //Arrange
+            var head = new Head();
+            head.SetSlope(Slope.Down);
+
+            //Act
+            head.SetRotation(Rotation.Minus45);
+
+            //Assert
+            Assert.Equal(Rotation.Rest, head.Rotation);
+        }
     }
 }

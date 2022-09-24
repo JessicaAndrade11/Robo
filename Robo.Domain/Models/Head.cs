@@ -14,5 +14,16 @@ namespace Robo.Domain.Models
             Slope = Slope.Rest;
             Rotation = Rotation.Rest;
         }
+
+        public void SetRotation(Rotation rotation)
+        {
+            if (Slope != Slope.Down)
+                Rotation = rotation;
+        }
+
+        public void SetSlope(Slope slope)
+        {
+            Slope = slope;
+        }
     }
 }

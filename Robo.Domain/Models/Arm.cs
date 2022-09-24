@@ -15,12 +15,17 @@ namespace Robo.Domain.Models
             Wrist = new Wrist();
         }
 
-        protected void MovementWrist(Rotation rotation)
+        public void MovementWrist(Rotation rotation)
         {
-            if(Elbow.Contracted == Contracted.StronglyContracted)
+            if (Elbow.Contracted == Contracted.StronglyContracted)
             {
-                Wrist.Rotation = rotation;
+                Wrist.SetRotation(rotation);
             }
+        }
+
+        public void MovementElbow(Contracted contracted)
+        {
+            Elbow.setContracted(contracted);
         }
     }
 }
