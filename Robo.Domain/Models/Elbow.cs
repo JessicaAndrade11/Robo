@@ -1,19 +1,22 @@
 ﻿using Robo.Domain.Enums;
+using Robo.Domain.Extensions;
 
 namespace Robo.Domain.Models
 {
     public class Elbow
     {
-        public Contracted Contracted { get; private set; }
+        public Contraction Contraction { get; private set; }
 
         public Elbow()
         {
-            Contracted = Contracted.Rest;    
+            Contraction = Contraction.Rest;
         }
 
-        public void setContracted(Contracted contracted)
+        public void setContraction(Contraction contraction)
         {
-            Contracted = contracted;
+            if (Contraction == contraction || contraction == Contraction.Previous() || contraction == Contraction.Next())
+                Contraction = contraction;
+            else throw new Exception("You can't contract the elbow, because it`s jump a state");
         }
     }
 }

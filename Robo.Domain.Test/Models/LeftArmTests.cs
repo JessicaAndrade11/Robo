@@ -14,7 +14,7 @@ namespace Robo.Domain.Test.Models
             var result = new LeftArm();
 
             //Assert
-            Assert.Equal(Contracted.Rest, result.Elbow.Contracted);
+            Assert.Equal(Contraction.Rest, result.Elbow.Contraction);
             Assert.Equal(ArmRotation.Rest, result.Wrist.ArmRotation);
         }
 
@@ -26,7 +26,7 @@ namespace Robo.Domain.Test.Models
         {
             //Arrange
             var leftArm = new LeftArm();
-            leftArm.Elbow.setContracted(Contracted.StronglyContracted);
+            leftArm.Elbow.setContraction(Contraction.StronglyContracted);
 
             //Act
             leftArm.MovementWrist(rotation);
@@ -35,15 +35,11 @@ namespace Robo.Domain.Test.Models
             Assert.Equal(rotation, leftArm.Wrist.ArmRotation);
         }
 
-        [Theory]
-        [InlineData(Contracted.Rest)]
-        [InlineData(Contracted.SlightlyContracted)]
-        [InlineData(Contracted.Contracted)]
-        public void MovementWrist_WithElbowDifferentThanStronglyContracted_ShouldNotMovementTheWrist(Contracted contracted)
+        [Fact]
+        public void MovementWrist_WithElbowDifferentThanStronglyContracted_ShouldNotMovementTheWrist()
         {
             //Arrange
             var leftArm = new LeftArm();
-            leftArm.Elbow.setContracted(contracted);
 
             //Act
             //Assert
@@ -60,7 +56,7 @@ namespace Robo.Domain.Test.Models
         {
             //Arrange
             var leftArm = new LeftArm();
-            leftArm.Elbow.setContracted(Contracted.StronglyContracted);
+            leftArm.Elbow.setContraction(Contraction.StronglyContracted);
 
             //Act
             //Assert

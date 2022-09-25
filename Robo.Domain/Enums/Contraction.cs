@@ -1,6 +1,6 @@
 ﻿namespace Robo.Domain.Enums
 {
-    public enum Contracted
+    public enum Contraction
     {
         Rest = 0,
         SlightlyContracted = 10,
