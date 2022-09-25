@@ -57,6 +57,11 @@ namespace Robo.Api.Test.Controllers
 
             _autoMocker
                 .GetMock<IMapper>()
+                .Setup(x => x.Map<Head>(It.IsAny<HeadViewModel>()))
+                .Returns(head);
+
+            _autoMocker
+                .GetMock<IMapper>()
                 .Setup(x => x.Map<HeadViewModel>(It.IsAny<Head>()))
                 .Returns(headViewModel);
 
@@ -68,7 +73,7 @@ namespace Robo.Api.Test.Controllers
             var headController = _autoMocker.CreateInstance<HeadController>();
 
             //Act
-            var result = headController.PutRotation(head, rotation) as OkObjectResult;
+            var result = headController.PutRotation(headViewModel, rotation) as OkObjectResult;
 
             //Assert
             Assert.IsAssignableFrom<OkObjectResult>(result);
@@ -86,6 +91,11 @@ namespace Robo.Api.Test.Controllers
 
             _autoMocker
                 .GetMock<IMapper>()
+                .Setup(x => x.Map<Head>(It.IsAny<HeadViewModel>()))
+                .Returns(head);
+
+            _autoMocker
+                .GetMock<IMapper>()
                 .Setup(x => x.Map<HeadViewModel>(It.IsAny<Head>()))
                 .Returns(headViewModel);
 
@@ -97,7 +107,7 @@ namespace Robo.Api.Test.Controllers
             var headController = _autoMocker.CreateInstance<HeadController>();
 
             //Act
-            var result = headController.PutTilt(head, tilt) as OkObjectResult;
+            var result = headController.PutTilt(headViewModel, tilt) as OkObjectResult;
 
             //Assert
             Assert.IsAssignableFrom<OkObjectResult>(result);
