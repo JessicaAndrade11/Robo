@@ -8,23 +8,21 @@ namespace Robo.Domain.Models
     {
         public Slope Slope { get; private set; }
 
-        public Rotation Rotation { get; private set; }
+        public HeadRotation HeadRotation { get; private set; }
 
         public Head()
         {
             Slope = Slope.Rest;
-            Rotation = Rotation.Rest;
+            HeadRotation = HeadRotation.Rest;
         }
 
-        public void SetRotation(Rotation rotation)
+        public void SetRotation(HeadRotation headRotation)
         {
             if (Slope != Slope.Down)
             {
-                if (Rotation == rotation)
-                    return;
-
-                if (rotation == Rotation.Previous() || rotation == Rotation.Next())
-                    Rotation = rotation;
+                if (HeadRotation == headRotation || headRotation == HeadRotation.Previous() || headRotation == HeadRotation.Next())
+                    HeadRotation = headRotation;
+                else throw new Exception("You can't rotation the head, because it`s jump a state");
             }
             else
                 throw new Exception("You can't rotation the head, because the head's slope is Down");

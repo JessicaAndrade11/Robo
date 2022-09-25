@@ -1,19 +1,22 @@
 ﻿using Robo.Domain.Enums;
+using Robo.Domain.Extensions;
 
 namespace Robo.Domain.Models
 {
     public class Wrist
     {
-        public Rotation Rotation { get; private set; }
+        public ArmRotation ArmRotation { get; private set; }
 
         public Wrist()
         {
-            Rotation = Rotation.Rest;
+            ArmRotation = ArmRotation.Rest;
         }
 
-        public void SetRotation(Rotation rotation)
+        public void SetRotation(ArmRotation armRotation)
         {
-            Rotation = rotation;
+            if (ArmRotation == armRotation || armRotation == ArmRotation.Previous() || armRotation == ArmRotation.Next())
+                ArmRotation = armRotation;
+            else throw new Exception("You can't rotation the wrist, because it`s jump a state");
         }
     }
 }

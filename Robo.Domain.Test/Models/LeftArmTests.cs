@@ -15,18 +15,14 @@ namespace Robo.Domain.Test.Models
 
             //Assert
             Assert.Equal(Contracted.Rest, result.Elbow.Contracted);
-            Assert.Equal(Rotation.Rest, result.Wrist.Rotation);
+            Assert.Equal(ArmRotation.Rest, result.Wrist.ArmRotation);
         }
 
         [Theory]
-        [InlineData(Rotation.Minus90)]
-        [InlineData(Rotation.Minus45)]
-        [InlineData(Rotation.Rest)]
-        [InlineData(Rotation.Plus45)]
-        [InlineData(Rotation.Plus90)]
-        [InlineData(Rotation.Plus135)]
-        [InlineData(Rotation.Plus180)]
-        public void MovementWrist_WithElbowStronglyContracted_ShouldMovementTheWrist(Rotation rotation)
+        [InlineData(ArmRotation.Minus45)]
+        [InlineData(ArmRotation.Rest)]
+        [InlineData(ArmRotation.Plus45)]
+        public void MovementWrist_WithElbowStronglyContracted_ShouldMovementTheWrist(ArmRotation rotation)
         {
             //Arrange
             var leftArm = new LeftArm();
@@ -36,7 +32,7 @@ namespace Robo.Domain.Test.Models
             leftArm.MovementWrist(rotation);
 
             //Assert
-            Assert.Equal(rotation, leftArm.Wrist.Rotation);
+            Assert.Equal(rotation, leftArm.Wrist.ArmRotation);
         }
 
         [Theory]
@@ -51,8 +47,25 @@ namespace Robo.Domain.Test.Models
 
             //Act
             //Assert
-            var exception = Assert.Throws<Exception>(() => leftArm.MovementWrist(Rotation.Plus135));
+            var exception = Assert.Throws<Exception>(() => leftArm.MovementWrist(ArmRotation.Plus135));
             Assert.Equal("You can't movement wrist, because the elbow is not strongly contracted", exception.Message);
+        }
+
+        [Theory]
+        [InlineData(ArmRotation.Plus180)]
+        [InlineData(ArmRotation.Plus135)]
+        [InlineData(ArmRotation.Plus90)]
+        [InlineData(ArmRotation.Minus90)]
+        public void MovementWrist_JumpAState_ShouldNotRotationTheWrist(ArmRotation rotation)
+        {
+            //Arrange
+            var leftArm = new LeftArm();
+            leftArm.Elbow.setContracted(Contracted.StronglyContracted);
+
+            //Act
+            //Assert
+            var exception = Assert.Throws<Exception>(() => leftArm.MovementWrist(rotation));
+            Assert.Equal("You can't rotation the wrist, because it`s jump a state", exception.Message);
         }
     }
 }

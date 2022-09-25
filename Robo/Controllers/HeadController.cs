@@ -31,9 +31,9 @@ namespace Robo.Api.Controllers
         }
 
         [HttpPut]
-        public IActionResult PutRotation(Head head, Rotation rotation)
+        public IActionResult PutRotation(Head head, HeadRotation headRotation)
         {
-            var headUpdated = _headService.PutRotation(head, rotation);
+            var headUpdated = _headService.PutRotation(head, headRotation);
             var headViewModel = _mapper.Map<HeadViewModel>(headUpdated);
             return Ok(headViewModel);
         }

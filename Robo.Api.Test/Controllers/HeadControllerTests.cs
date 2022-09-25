@@ -52,7 +52,7 @@ namespace Robo.Api.Test.Controllers
         {
             //Arrange
             var head = new Head();
-            var rotation = Rotation.Plus180;
+            var rotation = HeadRotation.Plus90;
             var headViewModel = new HeadViewModel();
 
             _autoMocker
@@ -62,7 +62,7 @@ namespace Robo.Api.Test.Controllers
 
             _autoMocker
                 .GetMock<IHeadService>()
-                .Setup(x => x.PutRotation(It.IsAny<Head>(), It.IsAny<Rotation>()))
+                .Setup(x => x.PutRotation(It.IsAny<Head>(), It.IsAny<HeadRotation>()))
                 .Returns(head);
 
             var headController = _autoMocker.CreateInstance<HeadController>();

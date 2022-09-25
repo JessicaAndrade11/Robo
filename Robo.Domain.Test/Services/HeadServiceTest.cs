@@ -33,7 +33,7 @@ namespace Robo.Domain.Test.Services
         {
             //Arrange
             var head = new Head();
-            var rotation = Rotation.Minus45;
+            var rotation = HeadRotation.Minus45;
             var headService = _autoMocker.CreateInstance<HeadService>();
 
             //Act
@@ -42,7 +42,7 @@ namespace Robo.Domain.Test.Services
             //Assert
             Assert.NotNull(result);
             Assert.IsType<Head>(result);
-            Assert.Equal(rotation, result.Rotation);
+            Assert.Equal(rotation, result.HeadRotation);
         }
 
         [Fact]

@@ -6,6 +6,6 @@ namespace Robo.Api.Models
     {
         public Guid Id { get; set; }
         public Slope Slope { get; set; }
-        public Rotation Rotation { get; set; }
+        public HeadRotation HeadRotation { get; set; }
     }
 }

@@ -15,16 +15,12 @@ namespace Robo.Domain.Models
             Wrist = new Wrist();
         }
 
-        public void MovementWrist(Rotation rotation)
+        public void MovementWrist(ArmRotation armRotation)
         {
             if (Elbow.Contracted == Contracted.StronglyContracted)
-            {
-                Wrist.SetRotation(rotation);
-            }
+                Wrist.SetRotation(armRotation);
             else
-            {
                 throw new Exception("You can't movement wrist, because the elbow is not strongly contracted");
-            }
         }
 
         public void MovementElbow(Contracted contracted)

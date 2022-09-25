@@ -11,9 +11,9 @@ namespace Robo.Domain.Services
            return new Head();
         }
 
-        public Head PutRotation(Head head, Rotation rotation)
+        public Head PutRotation(Head head, HeadRotation headrotation)
         {
-            head.SetRotation(rotation);
+            head.SetRotation(headrotation);
             return head;
         }
 

@@ -6,7 +6,7 @@ namespace Robo.Domain.Interfaces
     public interface IHeadService
     {
         Head CreateHead();
-        Head PutRotation(Head head, Rotation rotation);
+        Head PutRotation(Head head, HeadRotation headRotation);
         Head PutSlope(Head head, Slope slope);
     }
 }
