@@ -7,6 +7,6 @@ namespace Robo.Domain.Interfaces
     {
         Head CreateHead();
         Head PutRotation(Head head, HeadRotation headRotation);
-        Head PutSlope(Head head, Slope slope);
+        Head PutTilt(Head head, Tilt tilt);
     }
 }

@@ -17,9 +17,9 @@ namespace Robo.Domain.Services
             return head;
         }
 
-        public Head PutSlope(Head head, Slope slope)
+        public Head PutTilt(Head head, Tilt tilt)
         {
-            head.SetSlope(slope);
+            head.SetTilt(tilt);
             return head;
         }
     }

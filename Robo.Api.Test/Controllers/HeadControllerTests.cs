@@ -77,11 +77,11 @@ namespace Robo.Api.Test.Controllers
         }
 
         [Fact]
-        public void PutSlope_SetNewSlope_ShouldReturnHeadViewModelWithNewSlope()
+        public void PutTilt_SetNewTilt_ShouldReturnHeadViewModelWithNewTilt()
         {
             //Arrange
             var head = new Head();
-            var slope = Slope.Up;
+            var tilt = Tilt.Up;
             var headViewModel = new HeadViewModel();
 
             _autoMocker
@@ -91,13 +91,13 @@ namespace Robo.Api.Test.Controllers
 
             _autoMocker
                 .GetMock<IHeadService>()
-                .Setup(x => x.PutSlope(It.IsAny<Head>(), It.IsAny<Slope>()))
+                .Setup(x => x.PutTilt(It.IsAny<Head>(), It.IsAny<Tilt>()))
                 .Returns(head);
 
             var headController = _autoMocker.CreateInstance<HeadController>();
 
             //Act
-            var result = headController.PutSlope(head, slope) as OkObjectResult;
+            var result = headController.PutTilt(head, tilt) as OkObjectResult;
 
             //Assert
             Assert.IsAssignableFrom<OkObjectResult>(result);

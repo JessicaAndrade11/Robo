@@ -46,19 +46,19 @@ namespace Robo.Domain.Test.Services
         }
 
         [Fact]
-        public void PutSlope_ShouldSetTheNewSlopeAndReturnHead()
+        public void PutTilt_ShouldSetTheNewTiltAndReturnHead()
         {
             //Arrange
             var head = new Head();
             var headService = _autoMocker.CreateInstance<HeadService>();
 
             //Act
-            var result = headService.PutSlope(head, Slope.Down);
+            var result = headService.PutTilt(head, Tilt.Down);
 
             //Assert
             Assert.NotNull(result);
             Assert.IsType<Head>(result);
-            Assert.Equal(Slope.Down, result.Slope);
+            Assert.Equal(Tilt.Down, result.Tilt);
         }
     }
 }

@@ -39,9 +39,9 @@ namespace Robo.Api.Controllers
         }
 
         [HttpPut]
-        public IActionResult PutSlope(Head head, Slope slope)
+        public IActionResult PutTilt(Head head, Tilt tilt)
         {
-            var headUpdated = _headService.PutSlope(head, slope);
+            var headUpdated = _headService.PutTilt(head, tilt);
             var headViewModel = _mapper.Map<HeadViewModel>(headUpdated);
             return Ok(headViewModel);
         }

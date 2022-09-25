@@ -14,19 +14,19 @@ namespace Robo.Domain.Test.Models
             var result = new Head();
 
             //Assert
-            Assert.Equal(Slope.Rest, result.Slope);
+            Assert.Equal(Tilt.Rest, result.Tilt);
             Assert.Equal(HeadRotation.Rest, result.HeadRotation);
         }
 
         [Theory]
-        [InlineData(Slope.Up, HeadRotation.Minus45)]
-        [InlineData(Slope.Rest, HeadRotation.Plus45)]
-        [InlineData(Slope.Rest, HeadRotation.Rest)]
-        public void RotationHead_WithSlopeDifferentThanDown_ShouldRotationTheHead(Slope slope, HeadRotation headRotation)
+        [InlineData(Tilt.Up, HeadRotation.Minus45)]
+        [InlineData(Tilt.Rest, HeadRotation.Plus45)]
+        [InlineData(Tilt.Rest, HeadRotation.Rest)]
+        public void RotationHead_WithTiltDifferentThanDown_ShouldRotationTheHead(Tilt tilt, HeadRotation headRotation)
         {
             //Arrange
             var head = new Head();
-            head.SetSlope(slope);
+            head.SetTilt(tilt);
 
             //Act
             head.SetRotation(headRotation);
@@ -36,16 +36,16 @@ namespace Robo.Domain.Test.Models
         }
 
         [Fact]
-        public void RotationHead_WithSlopeLikeDown_ShouldNotRotationTheHead()
+        public void RotationHead_WithTiltLikeDown_ShouldNotRotationTheHead()
         {
             //Arrange
             var head = new Head();
-            head.SetSlope(Slope.Down);
+            head.SetTilt(Tilt.Down);
 
             //Act
             //Assert
             var exception = Assert.Throws<Exception>(() => head.SetRotation(HeadRotation.Minus45));
-            Assert.Equal("You can't rotation the head, because the head's slope is Down", exception.Message);
+            Assert.Equal("You can't rotation the head, because the head's tilt is Down", exception.Message);
         }
 
         [Theory]
@@ -60,6 +60,37 @@ namespace Robo.Domain.Test.Models
             //Assert
             var exception = Assert.Throws<Exception>(() => head.SetRotation(rotation));
             Assert.Equal("You can't rotation the head, because it`s jump a state", exception.Message);
+        }
+
+        [Theory]
+        [InlineData(Tilt.Up)]
+        [InlineData(Tilt.Rest)]
+        [InlineData(Tilt.Down)]
+        public void TiltHead_ShouldTiltTheHead(Tilt tilt)
+        {
+            //Arrange
+            var head = new Head();
+
+            //Act
+            head.SetTilt(tilt);
+
+            //Assert
+            Assert.Equal(tilt, head.Tilt);
+        }
+
+        [Theory]
+        [InlineData(Tilt.Down, Tilt.Up)]
+        [InlineData(Tilt.Up, Tilt.Down)]
+        public void TiltHead_JumpAState_ShouldNotTiltTheHead(Tilt currentTilt, Tilt nextTilt)
+        {
+            //Arrange
+            var head = new Head();
+            head.SetTilt(currentTilt);
+
+            //Act
+            //Assert
+            var exception = Assert.Throws<Exception>(() => head.SetTilt(nextTilt));
+            Assert.Equal("You can't tilt the head, because it`s jump a state", exception.Message);
         }
     }
 }

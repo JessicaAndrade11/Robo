@@ -1,6 +1,6 @@
 ﻿namespace Robo.Domain.Enums
 {
-    public enum Slope
+    public enum Tilt
     {
         Up = 10,
         Rest = 20,
