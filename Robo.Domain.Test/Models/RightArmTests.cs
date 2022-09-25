@@ -43,17 +43,16 @@ namespace Robo.Domain.Test.Models
         [InlineData(Contracted.Rest)]
         [InlineData(Contracted.SlightlyContracted)]
         [InlineData(Contracted.Contracted)]
-        public void MovementWrist_WithElbowDifferentThanStronglyContracted_ShouldMovementTheWrist(Contracted contracted)
+        public void MovementWrist_WithElbowDifferentThanStronglyContracted_ShouldNotMovementTheWrist(Contracted contracted)
         {
             //Arrange
             var rightArm = new RightArm();
             rightArm.Elbow.setContracted(contracted);
 
             //Act
-            rightArm.MovementWrist(Rotation.Plus135);
-
             //Assert
-            Assert.Equal(Rotation.Rest, rightArm.Wrist.Rotation);
+            var exception = Assert.Throws<Exception>(() => rightArm.MovementWrist(Rotation.Plus135));
+            Assert.Equal("You can't movement wrist, because the elbow is not strongly contracted", exception.Message);
         }
     }
 }

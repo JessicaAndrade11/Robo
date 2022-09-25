@@ -8,7 +8,7 @@ using Robo.Domain.Enums;
 using Robo.Domain.Interfaces;
 using Robo.Domain.Models;
 
-namespace Robo.Api.Test
+namespace Robo.Api.Test.Controllers
 {
     public class HeadControllerTests
     {

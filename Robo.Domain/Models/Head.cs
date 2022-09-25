@@ -1,5 +1,6 @@
 ﻿using Robo.Domain.Common;
 using Robo.Domain.Enums;
+using Robo.Domain.Extensions;
 
 namespace Robo.Domain.Models
 {
@@ -18,7 +19,15 @@ namespace Robo.Domain.Models
         public void SetRotation(Rotation rotation)
         {
             if (Slope != Slope.Down)
-                Rotation = rotation;
+            {
+                if (Rotation == rotation)
+                    return;
+
+                if (rotation == Rotation.Previous() || rotation == Rotation.Next())
+                    Rotation = rotation;
+            }
+            else
+                throw new Exception("You can't rotation the head, because the head's slope is Down");
         }
 
         public void SetSlope(Slope slope)

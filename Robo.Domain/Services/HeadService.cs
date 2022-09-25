@@ -13,12 +13,14 @@ namespace Robo.Domain.Services
 
         public Head PutRotation(Head head, Rotation rotation)
         {
-            throw new NotImplementedException();
+            head.SetRotation(rotation);
+            return head;
         }
 
         public Head PutSlope(Head head, Slope slope)
         {
-            throw new NotImplementedException();
+            head.SetSlope(slope);
+            return head;
         }
     }
 }

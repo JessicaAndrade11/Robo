@@ -25,13 +25,14 @@ namespace Robo.Domain.Test.Models
         {
             //Arrange
             var head = new Head();
+            var rotation = Rotation.Plus45;
             head.SetSlope(slope);
 
             //Act
-            head.SetRotation(Rotation.Minus45);
+            head.SetRotation(rotation);
 
             //Assert
-            Assert.Equal(Rotation.Minus45, head.Rotation);
+            Assert.Equal(rotation, head.Rotation);
         }
 
         [Fact]
@@ -42,10 +43,9 @@ namespace Robo.Domain.Test.Models
             head.SetSlope(Slope.Down);
 
             //Act
-            head.SetRotation(Rotation.Minus45);
-
             //Assert
-            Assert.Equal(Rotation.Rest, head.Rotation);
+            var exception = Assert.Throws<Exception>(() => head.SetRotation(Rotation.Minus45));
+            Assert.Equal("You can't rotation the head, because the head's slope is Down", exception.Message);
         }
     }
 }
