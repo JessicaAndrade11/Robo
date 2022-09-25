@@ -11,7 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9761564B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Robo.Domain", "Robo.Domain\Robo.Domain.csproj", "{11E32500-8CFA-458A-8290-F2F8F327C975}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robo.Domain.Test", "Robo.Domain.Test\Robo.Domain.Test.csproj", "{3A481A3B-3738-4AB3-A4E5-B328C715451B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Robo.Domain.Test", "Robo.Domain.Test\Robo.Domain.Test.csproj", "{3A481A3B-3738-4AB3-A4E5-B328C715451B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robo.Api.Test", "Robo.Api.Test\Robo.Api.Test.csproj", "{23EC0783-5457-4D20-A4C8-AE7D1A14D403}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{3A481A3B-3738-4AB3-A4E5-B328C715451B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A481A3B-3738-4AB3-A4E5-B328C715451B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A481A3B-3738-4AB3-A4E5-B328C715451B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23EC0783-5457-4D20-A4C8-AE7D1A14D403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23EC0783-5457-4D20-A4C8-AE7D1A14D403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23EC0783-5457-4D20-A4C8-AE7D1A14D403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23EC0783-5457-4D20-A4C8-AE7D1A14D403}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{FAA7B357-A2CE-48FA-B8A1-5D45E7946801} = {558C65B6-2A10-4751-BB14-AFCF1B1A2FC5}
 		{11E32500-8CFA-458A-8290-F2F8F327C975} = {558C65B6-2A10-4751-BB14-AFCF1B1A2FC5}
 		{3A481A3B-3738-4AB3-A4E5-B328C715451B} = {9761564B-BF08-4C26-80B6-0DF03E21F3D0}
+		{23EC0783-5457-4D20-A4C8-AE7D1A14D403} = {9761564B-BF08-4C26-80B6-0DF03E21F3D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {047CD011-2F25-47B6-B0BD-946A5E2D85C5}

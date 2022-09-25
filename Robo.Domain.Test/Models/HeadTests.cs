@@ -1,7 +1,7 @@
 ﻿using Robo.Domain.Enums;
 using Robo.Domain.Models;
 
-namespace Robo.Domain.Test
+namespace Robo.Domain.Test.Models
 {
     public class HeadTests
     {

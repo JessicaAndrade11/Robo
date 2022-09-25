@@ -1,17 +1,17 @@
 ﻿using Robo.Domain.Enums;
 using Robo.Domain.Models;
 
-namespace Robo.Domain.Test
+namespace Robo.Domain.Test.Models
 {
-    public class LeftArmTests
+    public class RightArmTests
     {
         [Fact]
-        public void leftArm_InitialState_ShouldBeRest()
+        public void RightArm_InitialState_ShouldBeRest()
         {
             //Arrange
 
             //Act
-            var result = new LeftArm();
+            var result = new RightArm();
 
             //Assert
             Assert.Equal(Contracted.Rest, result.Elbow.Contracted);
@@ -29,14 +29,14 @@ namespace Robo.Domain.Test
         public void MovementWrist_WithElbowStronglyContracted_ShouldMovementTheWrist(Rotation rotation)
         {
             //Arrange
-            var leftArm = new LeftArm();
-            leftArm.Elbow.setContracted(Contracted.StronglyContracted);
+            var rightArm = new RightArm();
+            rightArm.Elbow.setContracted(Contracted.StronglyContracted);
 
             //Act
-            leftArm.MovementWrist(rotation);
+            rightArm.MovementWrist(rotation);
 
             //Assert
-            Assert.Equal(rotation, leftArm.Wrist.Rotation);
+            Assert.Equal(rotation, rightArm.Wrist.Rotation);
         }
 
         [Theory]
@@ -46,14 +46,14 @@ namespace Robo.Domain.Test
         public void MovementWrist_WithElbowDifferentThanStronglyContracted_ShouldMovementTheWrist(Contracted contracted)
         {
             //Arrange
-            var leftArm = new LeftArm();
-            leftArm.Elbow.setContracted(contracted);
+            var rightArm = new RightArm();
+            rightArm.Elbow.setContracted(contracted);
 
             //Act
-            leftArm.MovementWrist(Rotation.Plus135);
+            rightArm.MovementWrist(Rotation.Plus135);
 
             //Assert
-            Assert.Equal(Rotation.Rest, leftArm.Wrist.Rotation);
+            Assert.Equal(Rotation.Rest, rightArm.Wrist.Rotation);
         }
     }
 }

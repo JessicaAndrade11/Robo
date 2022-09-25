@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Robo.Domain\Robo.Domain.csproj" />
+    <ProjectReference Include="..\Robo\Robo.Api.csproj" />
   </ItemGroup>
 
 </Project>
