@@ -19,6 +19,7 @@ interface HeadRotation {
 export class AppComponent {
   title = 'robo';
   robo = new Robo;
+  errorMessage = '';
   panelOpenState = false;
   headRotationControl = new FormControl<HeadRotation | null>(null, Validators.required);
   selectFormControl = new FormControl('', Validators.required);
@@ -46,6 +47,7 @@ export class AppComponent {
 
 
   setRotation() {
+    this.errorMessage = '';
     var rotation = this.headRotationControl.value?.value as number;
     console.log(this.robo.head);
     const data = this.robo.head;
@@ -55,7 +57,7 @@ export class AppComponent {
         next: (res) => {
           this.robo.head = res;
         },
-        error: (e) => console.error(e)
+        error: (e) => this.errorMessage = (e.error)
       });
   }
 

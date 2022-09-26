@@ -25,19 +25,33 @@ namespace Robo.Api.Controllers
         [HttpPut("rotation/{headRotation}")]
         public IActionResult PutRotation([FromBody] HeadViewModel headToUpdate, HeadRotation headRotation)
         {
-            var head = _mapper.Map<Head>(headToUpdate);
-            var headUpdated = _headService.PutRotation(head, headRotation);
-            var headViewModel = _mapper.Map<HeadViewModel>(headUpdated);
-            return Ok(headViewModel);
+            try
+            {
+                var head = _mapper.Map<Head>(headToUpdate);
+                var headUpdated = _headService.PutRotation(head, headRotation);
+                var headViewModel = _mapper.Map<HeadViewModel>(headUpdated);
+                return Ok(headViewModel);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpPut("tilt")]
+        [HttpPut("tilt/{tilt}")]
         public IActionResult PutTilt([FromBody] HeadViewModel headToUpdate, Tilt tilt)
         {
-            var head = _mapper.Map<Head>(headToUpdate);
-            var headUpdated = _headService.PutTilt(head, tilt);
-            var headViewModel = _mapper.Map<HeadViewModel>(headUpdated);
-            return Ok(headViewModel);
+            try
+            {
+                var head = _mapper.Map<Head>(headToUpdate);
+                var headUpdated = _headService.PutTilt(head, tilt);
+                var headViewModel = _mapper.Map<HeadViewModel>(headUpdated);
+                return Ok(headViewModel);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

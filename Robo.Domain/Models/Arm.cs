@@ -15,7 +15,7 @@ namespace Robo.Domain.Models
             Wrist = new Wrist();
         }
 
-        public void MovementWrist(ArmRotation armRotation)
+        public virtual void MovementWrist(ArmRotation armRotation)
         {
             if (Elbow.Contraction == Contraction.StronglyContracted)
                 Wrist.SetRotation(armRotation);

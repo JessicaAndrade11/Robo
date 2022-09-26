@@ -1,9 +1,8 @@
 <div class="content" role="main">
 
-  <!-- Highlight Card -->
-  <div class="">
+  <div>
 
-    <span>Create new R.O.B.O</span>
+    <h1>R.O.B.O</h1>
 
   </div>
 
@@ -158,5 +157,20 @@
       </mat-expansion-panel>
 
     </mat-accordion>
+
+    <h1>{{errorMessage}}</h1>
+
+   <h2>State of your Robo</h2>
+   <h3>Head</h3>
+   <span>Tilt: {{robo.head.tilt}}</span><br/>
+   <span>Rotation: {{robo.head.headRotation}}</span>
+
+   <h3>Right Arm</h3>
+   <span>Contraction of Elbow: {{robo.rightArm.elbow.contraction}}</span><br/>
+   <span>Rotation of Wrist: {{robo.rightArm.wrist.armRotation}}</span>
+
+   <h3>Left Arm</h3>
+   <span>Contraction of Elbow: {{robo.leftArm.elbow.contraction}}</span><br/>
+   <span>Rotation of Wrist: {{robo.leftArm.wrist.armRotation}}</span>
 
     <router-outlet></router-outlet>

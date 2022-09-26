@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Robo.Domain.Enums;
+using Robo.Domain.Models;
 
 namespace Robo.Domain.Interfaces
 {
     public interface IRightArmService
     {
+        RightArm ElbowUpdateContraction(RightArm rightArm, Contraction contraction);
+
+        RightArm WristUpdateRotation(RightArm rightArm, ArmRotation armRotation);
     }
 }

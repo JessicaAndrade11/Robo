@@ -44,7 +44,7 @@ namespace Robo.Domain.Test.Models
             //Act
             //Assert
             var exception = Assert.Throws<Exception>(() => rightArm.MovementWrist(ArmRotation.Plus135));
-            Assert.Equal("You can't movement wrist, because the elbow is not strongly contracted", exception.Message);
+            Assert.Equal("You can't movement the right wrist, because the right elbow is not strongly contracted", exception.Message);
         }
 
         [Theory]
