@@ -10,6 +10,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from "@angular/material/select";
 import { HeadService } from './config/head.service';
 import { RoboService } from './config/robo.service';
+import { RightArmService } from './config/right-arm.service';
+import { LeftArmService } from './config/left-arm.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { RoboService } from './config/robo.service';
   ],
   providers: [
     HeadService,
-    RoboService
+    RoboService,
+    RightArmService,
+    LeftArmService
   ],
   bootstrap: [AppComponent]
 })

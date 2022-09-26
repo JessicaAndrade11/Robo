@@ -31,6 +31,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IHeadService, HeadService>();
 builder.Services.AddScoped<IRoboService, RoboService>();
+builder.Services.AddScoped<IRightArmService, RightArmService>();
+builder.Services.AddScoped<ILeftArmService, LeftArmService>();
 
 var app = builder.Build();
 
