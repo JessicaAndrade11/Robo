@@ -5,228 +5,238 @@
     <h1>R.O.B.O</h1>
 
   </div>
+  <mat-grid-list cols="2" rowHeight="500px">
 
-  <div>
+    <mat-grid-tile rowHeight="1000px">
 
-    <mat-accordion>
+      <mat-accordion>
 
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
 
-        <mat-expansion-panel-header>
-          <mat-panel-title>Head</mat-panel-title>
-          <mat-panel-description>Functions of the Head</mat-panel-description>
-        </mat-expansion-panel-header>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Head</mat-panel-title>
+            <mat-panel-description>Functions of the Head</mat-panel-description>
+          </mat-expansion-panel-header>
 
-        <ng-container>
-          <mat-accordion>
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>Rotation</mat-panel-title>
-                <mat-panel-description>Functions of the rotation</mat-panel-description>
-              </mat-expansion-panel-header>
+          <ng-container>
+            <mat-accordion>
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Rotation</mat-panel-title>
+                  <mat-panel-description>Functions of the rotation</mat-panel-description>
+                </mat-expansion-panel-header>
 
-              <mat-form-field appearance="fill">
-                <mat-label>Rotation</mat-label>
-                <mat-select [formControl]="headRotationControl" required (selectionChange)="setHeadRotation()">
-                  <mat-option>--</mat-option>
-                  <mat-option *ngFor="let rotation of headRotations" [value]="rotation">
-                    {{rotation.name}}
-                  </mat-option>
-                </mat-select>
-                <mat-error *ngIf="headRotationControl.hasError('required')">Please choose a rotation</mat-error>
-                <mat-hint>{{headRotationControl.value?.value}}</mat-hint>
-              </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Rotation</mat-label>
+                  <mat-select [formControl]="headRotationControl" required (selectionChange)="setHeadRotation()">
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let rotation of headRotations" [value]="rotation">
+                      {{rotation.name}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="headRotationControl.hasError('required')">Please choose a rotation</mat-error>
+                  <mat-hint>{{headRotationControl.value?.value}}</mat-hint>
+                </mat-form-field>
 
-            </mat-expansion-panel>
-          </mat-accordion>
+              </mat-expansion-panel>
+            </mat-accordion>
 
-          <mat-accordion>
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>Tilt</mat-panel-title>
-                <mat-panel-description>Funcions of the tilt</mat-panel-description>
-              </mat-expansion-panel-header>
-              <mat-form-field appearance="fill">
-                <mat-label>Tilt</mat-label>
-                <mat-select [formControl]="headTiltControl" required (selectionChange)="setHeadTilt()">
-                  <mat-option>--</mat-option>
-                  <mat-option *ngFor="let tilt of headTilts" [value]="tilt">
-                    {{tilt.name}}
-                  </mat-option>
-                </mat-select>
-                <mat-error *ngIf="headTiltControl.hasError('required')">Please choose the tilt</mat-error>
-              </mat-form-field>
-            </mat-expansion-panel>
-          </mat-accordion>
+            <mat-accordion>
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Tilt</mat-panel-title>
+                  <mat-panel-description>Funcions of the tilt</mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field appearance="fill">
+                  <mat-label>Tilt</mat-label>
+                  <mat-select [formControl]="headTiltControl" required (selectionChange)="setHeadTilt()">
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let tilt of headTilts" [value]="tilt">
+                      {{tilt.name}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="headTiltControl.hasError('required')">Please choose the tilt</mat-error>
+                </mat-form-field>
+              </mat-expansion-panel>
+            </mat-accordion>
 
-        </ng-container>
-      </mat-expansion-panel>
+          </ng-container>
+        </mat-expansion-panel>
 
 
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
 
-        <mat-expansion-panel-header>
-          <mat-panel-title>Right Arm</mat-panel-title>
-          <mat-panel-description>Functions of the right arm</mat-panel-description>
-        </mat-expansion-panel-header>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Right Arm</mat-panel-title>
+            <mat-panel-description>Functions of the right arm</mat-panel-description>
+          </mat-expansion-panel-header>
 
-        <ng-container>
-          <mat-accordion>
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>Elbow</mat-panel-title>
-                <mat-panel-description>Functions of the elbow</mat-panel-description>
-              </mat-expansion-panel-header>
-              <ng-container>
-                <mat-accordion>
-                  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                    <mat-expansion-panel-header>
-                      <mat-panel-title>Contraction</mat-panel-title>
-                      <mat-panel-description>Choose a contraction</mat-panel-description>
-                    </mat-expansion-panel-header>
-                    <mat-form-field appearance="fill">
-                      <mat-label>Contraction</mat-label>
-                      <mat-select [formControl]="rightArmContractionControl" required
-                        (selectionChange)="setRightArmElbowContraction()">
-                        <mat-option>--</mat-option>
-                        <mat-option *ngFor="let contraction of contractions" [value]="contraction">
-                          {{contraction.name}}
-                        </mat-option>
-                      </mat-select>
-                      <mat-error *ngIf="rightArmContractionControl.hasError('required')">Please choose a rotation
-                      </mat-error>
-                    </mat-form-field>
-                  </mat-expansion-panel>
-                </mat-accordion>
-              </ng-container>
-            </mat-expansion-panel>
-          </mat-accordion>
+          <ng-container>
+            <mat-accordion>
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Elbow</mat-panel-title>
+                  <mat-panel-description>Functions of the elbow</mat-panel-description>
+                </mat-expansion-panel-header>
+                <ng-container>
+                  <mat-accordion>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>Contraction</mat-panel-title>
+                        <mat-panel-description>Choose a contraction</mat-panel-description>
+                      </mat-expansion-panel-header>
+                      <mat-form-field appearance="fill">
+                        <mat-label>Contraction</mat-label>
+                        <mat-select [formControl]="rightArmContractionControl" required
+                          (selectionChange)="setRightArmElbowContraction()">
+                          <mat-option>--</mat-option>
+                          <mat-option *ngFor="let contraction of contractions" [value]="contraction">
+                            {{contraction.name}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="rightArmContractionControl.hasError('required')">Please choose a rotation
+                        </mat-error>
+                      </mat-form-field>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </ng-container>
+              </mat-expansion-panel>
+            </mat-accordion>
 
-          <mat-accordion>
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>wrist</mat-panel-title>
-                <mat-panel-description>Funcions of the wrist</mat-panel-description>
-              </mat-expansion-panel-header>
-              <ng-container>
-                <mat-accordion>
-                  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                    <mat-expansion-panel-header>
-                      <mat-panel-title>Rotation</mat-panel-title>
-                      <mat-panel-description>Choose a rotation</mat-panel-description>rightArmRotationControl
-                    </mat-expansion-panel-header>
+            <mat-accordion>
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>wrist</mat-panel-title>
+                  <mat-panel-description>Funcions of the wrist</mat-panel-description>
+                </mat-expansion-panel-header>
+                <ng-container>
+                  <mat-accordion>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>Rotation</mat-panel-title>
+                        <mat-panel-description>Choose a rotation</mat-panel-description>rightArmRotationControl
+                      </mat-expansion-panel-header>
 
-                    <mat-form-field appearance="fill">
-                      <mat-label>Rotation</mat-label>
-                      <mat-select [formControl]="rightArmRotationControl" required
-                        (selectionChange)="setRightArmWristRotation()">
-                        <mat-option>--</mat-option>
-                        <mat-option *ngFor="let rotation of armRotations" [value]="rotation">
-                          {{rotation.name}}
-                        </mat-option>
-                      </mat-select>
-                      <mat-error *ngIf="rightArmRotationControl.hasError('required')">Please choose a rotation
-                      </mat-error>
-                      <mat-hint>{{rightArmRotationControl.value?.value}}</mat-hint>
-                    </mat-form-field>
-                  </mat-expansion-panel>
-                </mat-accordion>
-              </ng-container>
-            </mat-expansion-panel>
-          </mat-accordion>
+                      <mat-form-field appearance="fill">
+                        <mat-label>Rotation</mat-label>
+                        <mat-select [formControl]="rightArmRotationControl" required
+                          (selectionChange)="setRightArmWristRotation()">
+                          <mat-option>--</mat-option>
+                          <mat-option *ngFor="let rotation of armRotations" [value]="rotation">
+                            {{rotation.name}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="rightArmRotationControl.hasError('required')">Please choose a rotation
+                        </mat-error>
+                        <mat-hint>{{rightArmRotationControl.value?.value}}</mat-hint>
+                      </mat-form-field>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </ng-container>
+              </mat-expansion-panel>
+            </mat-accordion>
 
-        </ng-container>
-      </mat-expansion-panel>
+          </ng-container>
+        </mat-expansion-panel>
 
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
 
-        <mat-expansion-panel-header>
-          <mat-panel-title>Left Arm</mat-panel-title>
-          <mat-panel-description>Functions of the left arm</mat-panel-description>
-        </mat-expansion-panel-header>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Left Arm</mat-panel-title>
+            <mat-panel-description>Functions of the left arm</mat-panel-description>
+          </mat-expansion-panel-header>
 
-        <ng-container>
-          <mat-accordion>
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>Elbow</mat-panel-title>
-                <mat-panel-description>Functions of the elbow</mat-panel-description>
-              </mat-expansion-panel-header>
-              <ng-container>
-                <mat-accordion>
-                  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                    <mat-expansion-panel-header>
-                      <mat-panel-title>Contraction</mat-panel-title>
-                      <mat-panel-description>Choose a contraction</mat-panel-description>
-                    </mat-expansion-panel-header>
-                  
-                    <mat-form-field appearance="fill">
-                      <mat-label>Contraction</mat-label>
-                      <mat-select [formControl]="leftArmContractionControl" required
-                        (selectionChange)="setLeftArmElbowContraction()">
-                        <mat-option>--</mat-option>
-                        <mat-option *ngFor="let contraction of contractions" [value]="contraction">
-                          {{contraction.name}}
-                        </mat-option>
-                      </mat-select>
-                      <mat-error *ngIf="leftArmContractionControl.hasError('required')">Please choose a rotation
-                      </mat-error>
-                    </mat-form-field>
-                  </mat-expansion-panel>
-                </mat-accordion>
-              </ng-container>
-            </mat-expansion-panel>
-          </mat-accordion>
+          <ng-container>
+            <mat-accordion>
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Elbow</mat-panel-title>
+                  <mat-panel-description>Functions of the elbow</mat-panel-description>
+                </mat-expansion-panel-header>
+                <ng-container>
+                  <mat-accordion>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>Contraction</mat-panel-title>
+                        <mat-panel-description>Choose a contraction</mat-panel-description>
+                      </mat-expansion-panel-header>
 
-          <mat-accordion>
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>wrist</mat-panel-title>
-                <mat-panel-description>Funcions of the wrist</mat-panel-description>
-              </mat-expansion-panel-header>
-              <ng-container>
-                <mat-accordion>
-                  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                    <mat-expansion-panel-header>
-                      <mat-panel-title>Rotation</mat-panel-title>
-                      <mat-panel-description>Choose a rotation</mat-panel-description>
-                    </mat-expansion-panel-header>
-                    <mat-form-field appearance="fill">
-                      <mat-label>Rotation</mat-label>
-                      <mat-select [formControl]="leftArmRotationControl" required
-                        (selectionChange)="setLeftArmWristRotation()">
-                        <mat-option>--</mat-option>
-                        <mat-option *ngFor="let rotation of armRotations" [value]="rotation">
-                          {{rotation.name}}
-                        </mat-option>
-                      </mat-select>
-                      <mat-error *ngIf="leftArmRotationControl.hasError('required')">Please choose a rotation
-                      </mat-error>
-                    </mat-form-field>
-                  </mat-expansion-panel>
-                </mat-accordion>
-              </ng-container>
-            </mat-expansion-panel>
-          </mat-accordion>
+                      <mat-form-field appearance="fill">
+                        <mat-label>Contraction</mat-label>
+                        <mat-select [formControl]="leftArmContractionControl" required
+                          (selectionChange)="setLeftArmElbowContraction()">
+                          <mat-option>--</mat-option>
+                          <mat-option *ngFor="let contraction of contractions" [value]="contraction">
+                            {{contraction.name}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="leftArmContractionControl.hasError('required')">Please choose a rotation
+                        </mat-error>
+                      </mat-form-field>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </ng-container>
+              </mat-expansion-panel>
+            </mat-accordion>
 
-        </ng-container>
-      </mat-expansion-panel>
+            <mat-accordion>
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>wrist</mat-panel-title>
+                  <mat-panel-description>Funcions of the wrist</mat-panel-description>
+                </mat-expansion-panel-header>
+                <ng-container>
+                  <mat-accordion>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>Rotation</mat-panel-title>
+                        <mat-panel-description>Choose a rotation</mat-panel-description>
+                      </mat-expansion-panel-header>
+                      <mat-form-field appearance="fill">
+                        <mat-label>Rotation</mat-label>
+                        <mat-select [formControl]="leftArmRotationControl" required
+                          (selectionChange)="setLeftArmWristRotation()">
+                          <mat-option>--</mat-option>
+                          <mat-option *ngFor="let rotation of armRotations" [value]="rotation">
+                            {{rotation.name}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="leftArmRotationControl.hasError('required')">Please choose a rotation
+                        </mat-error>
+                      </mat-form-field>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </ng-container>
+              </mat-expansion-panel>
+            </mat-accordion>
 
-    </mat-accordion>
+          </ng-container>
+        </mat-expansion-panel>
 
-    <h1>{{errorMessage}}</h1>
+      </mat-accordion>
 
-    <h2>State of your Robo</h2>
-    <h3>Head</h3>
-    <span>Tilt: {{robo.head.tilt}}</span><br />
-    <span>Rotation: {{robo.head.headRotation}}</span>
+    </mat-grid-tile>
 
-    <h3>Right Arm</h3>
-    <span>Contraction of Elbow: {{robo.rightArm.elbow.contraction}}</span><br />
-    <span>Rotation of Wrist: {{robo.rightArm.wrist.armRotation}}</span>
+    <mat-grid-tile rowHeight="1000px">
 
-    <h3>Left Arm</h3>
-    <span>Contraction of Elbow: {{robo.leftArm.elbow.contraction}}</span><br />
-    <span>Rotation of Wrist: {{robo.leftArm.wrist.armRotation}}</span>
+      <h1 class="error">{{errorMessage}}</h1>
 
+      <h2>State of your Robo: </h2>
+      <mat-list>
+        <mat-list-item class="title">Head</mat-list-item>
+        <mat-list-item>Tilt: {{robo.head.tilt}}</mat-list-item>
+        <mat-list-item>Rotation: {{robo.head.headRotation}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item class="title">Right Arm</mat-list-item>
+        <mat-list-item>Contraction of Elbow: {{robo.rightArm.elbow.contraction}}</mat-list-item>
+        <mat-list-item>Rotation of Wrist: {{robo.rightArm.wrist.armRotation}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item class="title">Left Arm</mat-list-item>
+        <mat-list-item>Contraction of Elbow: {{robo.leftArm.elbow.contraction}}</mat-list-item>
+        <mat-list-item>Rotation of Wrist: {{robo.leftArm.wrist.armRotation}}</mat-list-item>
+      </mat-list>
+   
+ 
+    </mat-grid-tile>
+  </mat-grid-list>
     <router-outlet></router-outlet>

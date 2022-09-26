@@ -6,5 +6,10 @@
     flex-direction: column;
   }
 
+  .title {
+    font-weight: bold;
+  }
   
-
+.error{
+    color: red;
+}

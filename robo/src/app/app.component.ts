@@ -4,7 +4,6 @@ import { HeadService } from './config/head.service';
 import { LeftArmService } from './config/left-arm.service';
 import { RightArmService } from './config/right-arm.service';
 import { RoboService } from './config/robo.service';
-import { Head } from './models/head.model';
 import { Robo } from './models/robo.model';
 
 interface HeadRotation {
@@ -120,6 +119,7 @@ export class AppComponent {
       .subscribe({
         next: (res) => {
           this.robo.head = res;
+
         },
         error: (e) => this.errorMessage = (e.error)
       });
