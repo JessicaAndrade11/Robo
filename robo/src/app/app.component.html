@@ -1,0 +1,162 @@
+<div class="content" role="main">
+
+  <!-- Highlight Card -->
+  <div class="">
+
+    <span>Create new R.O.B.O</span>
+
+  </div>
+
+  <div>
+
+    <mat-accordion>
+
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+
+        <mat-expansion-panel-header>
+          <mat-panel-title>Head</mat-panel-title>
+          <mat-panel-description>Functions of the Head</mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <ng-container>
+          <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>Rotation</mat-panel-title>
+                <mat-panel-description>Functions of the rotation</mat-panel-description>
+              </mat-expansion-panel-header>            
+
+              <mat-form-field appearance="fill">
+                <mat-label>Rotation</mat-label>
+                <mat-select [formControl]="headRotationControl" required (selectionChange)="setRotation()">
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let rotation of headRotations" [value]="rotation">
+                    {{rotation.name}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="headRotationControl.hasError('required')">Please choose a rotation</mat-error>
+                <mat-hint>{{headRotationControl.value?.value}}</mat-hint>
+              </mat-form-field>
+
+            </mat-expansion-panel>
+          </mat-accordion>
+
+          <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>Tilt</mat-panel-title>
+                <mat-panel-description>Funcions of the tilt</mat-panel-description>
+              </mat-expansion-panel-header>
+              <p>conteudo</p>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+        </ng-container>
+      </mat-expansion-panel>
+
+
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+
+        <mat-expansion-panel-header>
+          <mat-panel-title>Right Arm</mat-panel-title>
+          <mat-panel-description>Functions of the right arm</mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <ng-container>
+          <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>Elbow</mat-panel-title>
+                <mat-panel-description>Functions of the elbow</mat-panel-description>
+              </mat-expansion-panel-header>
+              <ng-container>
+                <mat-accordion>
+                  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>Contraction</mat-panel-title>
+                      <mat-panel-description>Choose a contraction</mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <p>conteudo</p>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </ng-container>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+          <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>wrist</mat-panel-title>
+                <mat-panel-description>Funcions of the wrist</mat-panel-description>
+              </mat-expansion-panel-header>
+              <ng-container>
+                <mat-accordion>
+                  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>Rotation</mat-panel-title>
+                      <mat-panel-description>Choose a rotation</mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <p>conteudo</p>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </ng-container>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+        </ng-container>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+
+        <mat-expansion-panel-header>
+          <mat-panel-title>Left Arm</mat-panel-title>
+          <mat-panel-description>Functions of the left arm</mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <ng-container>
+          <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>Elbow</mat-panel-title>
+                <mat-panel-description>Functions of the elbow</mat-panel-description>
+              </mat-expansion-panel-header>
+              <ng-container>
+                <mat-accordion>
+                  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>Contraction</mat-panel-title>
+                      <mat-panel-description>Choose a contraction</mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <p>conteudo</p>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </ng-container>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+          <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>wrist</mat-panel-title>
+                <mat-panel-description>Funcions of the wrist</mat-panel-description>
+              </mat-expansion-panel-header>
+              <ng-container>
+                <mat-accordion>
+                  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>Rotation</mat-panel-title>
+                      <mat-panel-description>Choose a rotation</mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <p>conteudo</p>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </ng-container>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+        </ng-container>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+
+    <router-outlet></router-outlet>

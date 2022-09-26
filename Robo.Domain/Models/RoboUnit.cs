@@ -2,13 +2,13 @@
 
 namespace Robo.Domain.Models
 {
-    public class Robo : BaseEntity
+    public class RoboUnit : BaseEntity
     {
-        public Robo(Head head, RightArm rightArm, LeftArm leftArm)
+        public RoboUnit()
         {
-            Head = head;
-            RightArm = rightArm;
-            LeftArm = leftArm;
+            Head = new Head();
+            RightArm = new RightArm();
+            LeftArm = new LeftArm();
         }
 
         public Head Head { get; private set; }

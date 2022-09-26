@@ -8,7 +8,7 @@ using Robo.Domain.Models;
 namespace Robo.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class HeadController : ControllerBase
     {
         private readonly IMapper _mapper;
@@ -22,15 +22,7 @@ namespace Robo.Api.Controllers
             _mapper = mapper;
         }
 
-        [HttpPost]
-        public IActionResult PostCreateHead()
-        {
-            var headNew = _headService.CreateHead();
-            var headViewModel = _mapper.Map<HeadViewModel>(headNew);
-            return Ok(headViewModel);
-        }
-
-        [HttpPut("rotation")]
+        [HttpPut("rotation/{headRotation}")]
         public IActionResult PutRotation([FromBody] HeadViewModel headToUpdate, HeadRotation headRotation)
         {
             var head = _mapper.Map<Head>(headToUpdate);

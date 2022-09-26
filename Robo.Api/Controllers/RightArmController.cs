@@ -5,7 +5,7 @@ using Robo.Domain.Interfaces;
 namespace Robo.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class RightArmController : ControllerBase
     {
         private readonly IMapper _mapper;

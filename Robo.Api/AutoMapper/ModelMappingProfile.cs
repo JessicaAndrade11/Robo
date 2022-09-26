@@ -9,6 +9,11 @@ namespace Robo.Api.AutoMapper
         public ModelMappingProfile()
         {
             CreateMap<HeadViewModel, Head>().ReverseMap();
+            CreateMap<RoboViewModel, RoboUnit>().ReverseMap();
+            CreateMap<RightArmViewModel, RightArm>().ReverseMap();
+            CreateMap<LeftArmViewModel, LeftArm>().ReverseMap();
+            CreateMap<WristViewModel, Wrist>().ReverseMap();
+            CreateMap<ElbowViewModel, Elbow>().ReverseMap();
         }
     }
 }

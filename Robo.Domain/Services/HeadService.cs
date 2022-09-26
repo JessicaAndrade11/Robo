@@ -6,11 +6,6 @@ namespace Robo.Domain.Services
 {
     public class HeadService : IHeadService
     {
-        public Head CreateHead()
-        {
-           return new Head();
-        }
-
         public Head PutRotation(Head head, HeadRotation headrotation)
         {
             head.SetRotation(headrotation);

@@ -20,34 +20,6 @@ namespace Robo.Api.Test.Controllers
         }
 
         [Fact]
-        public void PostRotation_ShouldCreateHeadAndReturnHeadViewModel()
-        {
-            //Arrange
-            var head = new Head();
-            var headViewModel = new HeadViewModel();
-
-            _autoMocker
-                .GetMock<IMapper>()
-                .Setup(x => x.Map<HeadViewModel>(It.IsAny<Head>()))
-                .Returns(headViewModel);
-
-            _autoMocker
-                .GetMock<IHeadService>()
-                .Setup(x => x.CreateHead())
-                .Returns(head);
-
-            var headController = _autoMocker.CreateInstance<HeadController>();
-
-            //Act
-            var result = headController.PostCreateHead() as OkObjectResult;
-
-            //Assert
-            Assert.IsAssignableFrom<OkObjectResult>(result);
-            Assert.NotNull(result);
-            Assert.IsType<HeadViewModel>(result.Value);
-        }
-
-        [Fact]
         public void PutRotation_SetNewRotation_ShouldReturnHeadViewModelWithNewRotation()
         {
             //Arrange
